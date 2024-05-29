@@ -12,9 +12,8 @@ macro(choose_host_profile)
     execute_process(COMMAND ${CONAN_COMMAND} profile path ${CONAN_HOST_PROFILE}
                     RESULT_VARIABLE result_code)
     if (NOT result_code EQUAL 0)
-        message(WARNING "Conan-Setup: Profile '${CONAN_HOST_PROFILE}' does not exist. Fallback to default profile")
         detect_host_profile(${CMAKE_BINARY_DIR}/conan-dependencies/profile)
-        set(CONAN_HOST_PROFILE "default")
+        message(FATAL_ERROR "Conan-Setup: Profile '${CONAN_HOST_PROFILE}' does not exist. Fallback to default profile")
     endif()
 endmacro()
 
