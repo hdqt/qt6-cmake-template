@@ -3,7 +3,7 @@ set(LIB_PRIVATE_SOURCES
     Dummy.hpp
 )
 
-if(BUILD_SHARED_LIBS)
+if (BUILD_SHARED_LIBS)
     target_sources(${PROJECT_NAME} PRIVATE ${LIB_PRIVATE_SOURCES})
     target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 endif()
