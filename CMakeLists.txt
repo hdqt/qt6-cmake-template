@@ -15,6 +15,12 @@ if (SKIP_BUILD_UNIT_TESTS)
     set(BUILD_UNIT_TESTS OFF CACHE BOOL "Disable Unit tests due to non-native platform" FORCE)
 endif()
 
+if ("${Qt6_DIR}" STREQUAL "")
+    list(PREPEND CMAKE_PREFIX_PATH "${CONAN_QT_DIR}")
+    list(REMOVE_DUPLICATES CMAKE_PREFIX_PATH)
+    set(CMAKE_PREFIX_PATH "${CMAKE_PREFIX_PATH}" CACHE STRING "" FORCE)
+endif()
+
 find_package(Qt6 REQUIRED COMPONENTS Quick)
 
 if (BUILD_UNIT_TESTS)
@@ -22,3 +28,15 @@ if (BUILD_UNIT_TESTS)
 endif()
 
 add_subdirectory(libsrc)
+
+include(GNUInstallDirs)
+
+if(BUILD_SHARED_LIBS)
+    install(TARGETS ${PROJECT_NAME}
+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    )
+endif()
+
+install(TARGETS lib${PROJECT_NAME}
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+)

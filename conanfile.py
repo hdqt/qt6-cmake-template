@@ -14,7 +14,8 @@ class Qt6CmakeTemplate(ConanFile):
     default_options = {
         "shared": False
     }
-    exports_sources = "!build/*", "CMakeLists.txt", "conanfile.py", "*.cpp", "*.hpp"
+    exports_sources = ["!build/*", "*CMakeLists.txt", "*.cmake", "conanfile.py",
+                      "*.cpp", "*.hpp"]
 
     def requirements(self):
         if self.buildenv.vars(self).get("PLATFORM") == "Native":
@@ -28,6 +29,7 @@ class Qt6CmakeTemplate(ConanFile):
         deps.generate()
         tc = CMakeToolchain(self)
         tc.variables["SKIP_BUILD_UNIT_TESTS"] = self.buildenv.vars(self).get("PLATFORM") != "Native"
+        tc.variables["CONAN_QT_DIR"] = self.buildenv.vars(self).get("QT_DIR", "")
         tc.generate()
 
     def build(self):

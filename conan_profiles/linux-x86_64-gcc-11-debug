@@ -9,3 +9,5 @@ os=Linux
 
 [buildenv]
 PLATFORM=Native
+QT_DIR=/home/dang/workspace/programs/Qt/6.7.1/gcc_64
+
