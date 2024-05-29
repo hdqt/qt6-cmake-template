@@ -1,0 +1,13 @@
+[settings]
+arch=armv8
+build_type=Release
+compiler=clang
+compiler.cppstd=17
+compiler.libcxx=c++_shared
+compiler.version=17
+os=Android
+os.api_level=23
+
+[conf]
+tools.android:ndk_path=/home/dang/workspace/programs/Android/Sdk/ndk/26.1.10909125
+tools.cmake.cmaketoolchain:generator=Ninja
