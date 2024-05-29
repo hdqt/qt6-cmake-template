@@ -1,6 +1,3 @@
-add_library(${PROJECT_NAME}-gmock SHARED)
-target_link_libraries(${PROJECT_NAME}-gmock PUBLIC lib${PROJECT_NAME})
-
 set(MOCK_PUBLIC_SOURCES
     MockIDummy.hpp
 )
