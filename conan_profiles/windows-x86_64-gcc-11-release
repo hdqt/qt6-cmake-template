@@ -12,3 +12,4 @@ QT_DIR=D:/programs/Qt/6.7.1/mingw_64
 
 [conf]
 tools.cmake.cmaketoolchain:generator=Ninja
+tools.build:compiler_executables={'c': 'D:/programs/Qt/Tools/mingw1120_64/bin/gcc.exe', 'cpp': 'D:/programs/Qt/Tools/mingw1120_64/bin/g++.exe'}

@@ -127,7 +127,7 @@ for profile in ${RELEASE_PROFILES[@]}; do
     if [[ $status_code -eq 0 ]]; then
         build_status[$profile]="SUCCESS"
     else
-        build_status[$profile]="FAIL. Check log at $logfile_path"
+        build_status[$profile]="FAIL"
     fi
 done
 
