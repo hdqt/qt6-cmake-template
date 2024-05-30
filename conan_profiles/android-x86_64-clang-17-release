@@ -9,9 +9,8 @@ os=Android
 os.api_level=23
 
 [buildenv]
-QT_DIR=/home/dang/workspace/programs/Qt/6.7.1/android_x86_64
+QT_DIR=D:/programs/Qt/6.7.1/android_x86_64
 
 [conf]
-tools.android:ndk_path=/home/dang/workspace/programs/Android/Sdk/ndk/26.1.10909125
+tools.android:ndk_path=D:/programs/Android/Sdk/ndk/26.1.10909125
 tools.cmake.cmaketoolchain:generator=Ninja
-

@@ -5,8 +5,11 @@ compiler=gcc
 compiler.cppstd=gnu17
 compiler.libcxx=libstdc++11
 compiler.version=11
-os=Linux
+os=Windows
 
 [buildenv]
 PLATFORM=Native
-QT_DIR=/home/dang/workspace/programs/Qt/6.7.1/gcc_64
+QT_DIR=D:/programs/Qt/6.7.1/mingw_64
+
+[conf]
+tools.cmake.cmaketoolchain:generator=Ninja

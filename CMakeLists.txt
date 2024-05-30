@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.18)
 
 set(QT_CREATOR_SKIP_CONAN_SETUP ON)
 
@@ -8,7 +8,9 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-include(cmake/conan-setup.cmake)
+if (QT_CREATOR_SKIP_CONAN_SETUP)
+    include(cmake/conan-setup.cmake)
+endif()
 
 option(BUILD_UNIT_TESTS "Build Unit tests option" ON)
 if (SKIP_BUILD_UNIT_TESTS)

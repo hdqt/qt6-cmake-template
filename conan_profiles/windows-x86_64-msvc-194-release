@@ -1,0 +1,14 @@
+[settings]
+arch=x86_64
+build_type=Release
+compiler=msvc
+compiler.runtime=dynamic
+compiler.runtime_type=Release
+compiler.version=194
+os=Windows
+
+[buildenv]
+QT_DIR=D:/programs/Qt/6.7.1/msvc2019_64
+
+[conf]
+tools.cmake.cmaketoolchain:generator=Ninja
