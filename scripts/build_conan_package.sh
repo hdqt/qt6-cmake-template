@@ -116,18 +116,13 @@ for profile in ${RELEASE_PROFILES[@]}; do
     echo "    $profile"
 done
 
-# 6. Create log directory
-today=$(date +'%F')
-log_dir="/tmp/${PACKAGE_NAME}/${PACKAGE_VERSION}"
-mkdir -p "$log_dir"
-
 # 6. Build packages
 declare -A build_status=()
 for profile in ${RELEASE_PROFILES[@]}; do
     logfile_path="${log_dir}/${profile}_${today}.log"
 
-    echo "Running: conan create \"$CONANFILE_PATH\" -pr \"$profile\" -o shared=True 2>&1 | tee \"$logfile_path\""
-    conan create "$CONANFILE_PATH" -pr "$profile" -o shared=True 2>&1 | tee "$logfile_path"
+    echo "Running: conan create \"$CONANFILE_PATH\" -pr \"$profile\" -o shared=True"
+    conan create "$CONANFILE_PATH" -pr "$profile" -o shared=True
     status_code=$?
     if [[ $status_code -eq 0 ]]; then
         build_status[$profile]="SUCCESS"
